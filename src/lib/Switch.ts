@@ -1,5 +1,3 @@
-
-
 import { Task } from './Task'
 
 export class Switch extends Task {

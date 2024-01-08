@@ -9,7 +9,6 @@ export class Counter extends Task {
         this.createSignal('changed')
         this._start = start
         this._a = start
-
     }
 
     get value() {

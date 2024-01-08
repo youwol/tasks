@@ -27,20 +27,21 @@ export class Combo extends Task {
                 this._id = id
                 this.emit('changed', {
                     id: this._id,
-                    name: this._choices[this._id]
+                    name: this._choices[this._id],
                 })
             }
-        } else { // assume Int
-            if (this._id === a as number) {
+        } else {
+            // assume Int
+            if (this._id === (a as number)) {
                 return
             }
-            if (a as number < 0 || a as number >= this._choices.length) {
+            if ((a as number) < 0 || (a as number) >= this._choices.length) {
                 return
             }
             this._id = a as number
             this.emit('changed', {
                 id: this._id,
-                name: this._choices[this._id]
+                name: this._choices[this._id],
             })
         }
     }
@@ -57,5 +58,4 @@ export class Combo extends Task {
         }
         return -1 // no items
     }
-
 }

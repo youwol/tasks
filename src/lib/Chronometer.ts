@@ -19,7 +19,7 @@ export class Chronometer extends Task {
 
         const timeDiff = new Date().getTime() - this.startTime.getTime() // in ms
         this.emit('finished', timeDiff)
-        
+
         return timeDiff
     }
 }

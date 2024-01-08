@@ -1,9 +1,8 @@
 import { Task } from './Task'
 
 export type IntervalParameters = {
-    nbRuns?: number,
+    nbRuns?: number
     delay?: any
-
 }
 
 export class Interval extends Task {

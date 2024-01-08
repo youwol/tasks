@@ -49,11 +49,15 @@ export abstract class Boolean extends Task {
 }
 
 export class And extends Boolean {
-    protected check() { return this._a && this._b }
+    protected check() {
+        return this._a && this._b
+    }
 }
 
 export class Or extends Boolean {
-    protected check() { return this._a || this._b }
+    protected check() {
+        return this._a || this._b
+    }
 }
 
 export class Equals extends Boolean {
@@ -62,5 +66,7 @@ export class Equals extends Boolean {
         this.setA(a)
         this.setB(b)
     }
-    protected check() { return this._a === this._b }
+    protected check() {
+        return this._a === this._b
+    }
 }

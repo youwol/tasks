@@ -3,8 +3,16 @@
 A simple library wich allows to connect `Task`s asynchronously or not.
 
 ## Example
+
 ```js
-const { Trigger, Equals, Between, Counter, Chronometer, Value } = require('../dist/@youwol/tasks')
+const {
+    Trigger,
+    Equals,
+    Between,
+    Counter,
+    Chronometer,
+    Value,
+} = require('../dist/@youwol/tasks')
 
 /*
 
@@ -25,16 +33,18 @@ const value = new Value()
 reset.connect('tick', counter, 'reset')
 inc.connect('tick', counter, 'inc')
 
-counter.connect('changed', value => console.log('--> counter =', value))
+counter.connect('changed', (value) => console.log('--> counter =', value))
 counter.connect('changed', between, 'setValue')
 counter.connect('changed', equals, 'setB')
 counter.connect('changed', value, 'a')
 
-value.connect('changed', value => console.log('  * value =', value))
-between.connect('tick', value => console.log('  *', between.min(), '<=', value, '<=', between.max()))
-equals.connect('tick', value => console.log('  * Equals values: ' + value))
+value.connect('changed', (value) => console.log('  * value =', value))
+between.connect('tick', (value) =>
+    console.log('  *', between.min(), '<=', value, '<=', between.max()),
+)
+equals.connect('tick', (value) => console.log('  * Equals values: ' + value))
 chrono.connect('started', () => console.log('------------------------'))
-chrono.connect('finished', value => console.log('Elapsed time:', value, 'ms'))
+chrono.connect('finished', (value) => console.log('Elapsed time:', value, 'ms'))
 
 chrono.start()
 inc.emit('tick')
@@ -52,6 +62,7 @@ chrono.stop()
 ```
 
 Should display
+
 ```txt
 ------------------------
 --> counter = 1
@@ -85,4 +96,4 @@ Should display
 --> counter = 5
   * value = 5
 Elapsed time: 5 ms
-``````
+```

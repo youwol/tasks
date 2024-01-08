@@ -53,5 +53,4 @@ export class Algorithm extends Task {
         this.emit('started')
         this.exec(args)
     }
-
 }

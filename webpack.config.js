@@ -20,10 +20,7 @@ module.exports = {
         extensions: ['.ts', 'tsx', '.js'],
         modules: [ROOT, 'node_modules'],
     },
-    externals: [
-        {
-        },
-    ],
+    externals: [{}],
     module: {
         rules: [
             {

@@ -37,8 +37,12 @@ export class Between extends Task {
         }
     }
 
-    min() { return this._min }
-    max() { return this._max }
+    min() {
+        return this._min
+    }
+    max() {
+        return this._max
+    }
 
     setMax(max: number) {
         if (this._max !== max && max > this._min) {

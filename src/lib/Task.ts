@@ -25,5 +25,4 @@ export class Task {
     connect(signal: any, receiver: any, slot: any) {
         connect(this, signal, receiver, slot)
     }
-
 }

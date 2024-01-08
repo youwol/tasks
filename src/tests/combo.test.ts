@@ -5,10 +5,15 @@ test('combo test', () => {
     let name = ''
 
     const c = new Combo(['1', 'toto', 'foo', '123'])
-    connect(c, 'changed', v => {
-        count++
-        name = v.name
-    }, undefined )
+    connect(
+        c,
+        'changed',
+        (v) => {
+            count++
+            name = v.name
+        },
+        undefined,
+    )
 
     c.selection = 'toto'
     expect(count).toEqual(1)

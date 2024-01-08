@@ -9,5 +9,4 @@ export class Trigger extends Task {
     tick() {
         this.emit('tick')
     }
-
 }

@@ -26,8 +26,12 @@ export class AsyncLoopAlgorithm extends Algorithm {
         this.createSignal('stopped')
     }
 
-    set numberOfIteration(n) { this._max = n }
-    get numberOfIteration() { return this._max }
+    set numberOfIteration(n) {
+        this._max = n
+    }
+    get numberOfIteration() {
+        return this._max
+    }
 
     preLoopCB() {
         // Client code for one loop
@@ -48,12 +52,15 @@ export class AsyncLoopAlgorithm extends Algorithm {
             this.doLoop(0, resolve, reject)
         })
 
-        p.then(() => {
-            this.postLoopCB()
-            this.emit('finished')
-        }, (raison) => {
-            this.emit('stopped', raison)
-        })
+        p.then(
+            () => {
+                this.postLoopCB()
+                this.emit('finished')
+            },
+            (raison) => {
+                this.emit('stopped', raison)
+            },
+        )
     }
 
     doLoop(i: number, resolve: Function, reject: Function) {
@@ -71,5 +78,4 @@ export class AsyncLoopAlgorithm extends Algorithm {
 
         setTimeout(() => this.doLoop(i + 1, resolve, reject), 1)
     }
-
 }

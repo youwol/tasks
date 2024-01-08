@@ -1,8 +1,8 @@
 import { Task } from './Task'
 
 export type ForLoopParameters = {
-    start?: number,
-    stop?: number,
+    start?: number
+    stop?: number
     step?: number
 }
 
@@ -26,20 +26,42 @@ export class ForLoop extends Task {
         }
     }
 
-    get startValue() { return this._start }
-    set startValue(i) { this._start = i }
+    get startValue() {
+        return this._start
+    }
+    set startValue(i) {
+        this._start = i
+    }
 
-    get stopValue() { return this._stop }
-    set stopValue(i) { this._stop = i }
+    get stopValue() {
+        return this._stop
+    }
+    set stopValue(i) {
+        this._stop = i
+    }
 
-    get stepValue() { return this._step }
-    set stepValue(i) { this._step = i }
+    get stepValue() {
+        return this._step
+    }
+    set stepValue(i) {
+        this._step = i
+    }
 
-    get currentValue() { return this._cur }
+    get currentValue() {
+        return this._cur
+    }
 
     start() {
-        for (this._cur = this._start; this._cur !== this._stop; this._cur += this._step) {
-            this.emit('tick', { start: this._start, stop: this._stop, current: this._cur })
+        for (
+            this._cur = this._start;
+            this._cur !== this._stop;
+            this._cur += this._step
+        ) {
+            this.emit('tick', {
+                start: this._start,
+                stop: this._stop,
+                current: this._cur,
+            })
         }
     }
 }
